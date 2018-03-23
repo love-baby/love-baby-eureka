@@ -35,3 +35,5 @@ log/
 love-baby-eureka.iml
 src/test/
 target/
+
+.idea*
