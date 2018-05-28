@@ -153,7 +153,6 @@
                     <logsDirectory>logs</logsDirectory>
                     <daemons>
                         <daemon>
-                            <id>WAREHOUSE-WEB</id>
                             <mainClass>com.love.baby.eureka.EurekaApplication</mainClass>
                             <platforms>
                                 <platform>jsw</platform>
