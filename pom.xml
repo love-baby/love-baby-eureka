@@ -99,9 +99,10 @@
                     <encoding>UTF-8</encoding>
                     <logsDirectory>logs</logsDirectory>
                     <tempDirectory>tmp</tempDirectory>
+                    <extraJvmArguments>-Xms128m</extraJvmArguments>
                     <programs>
                         <program>
-                            <id>mall</id>
+                            <id>start</id>
                             <!-- 启动类 -->
                             <mainClass>com.love.baby.eureka.EurekaApplication</mainClass>
                             <jvmSettings>
