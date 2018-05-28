@@ -83,7 +83,7 @@
                         <platform>unix</platform>
                     </platforms>
                     <!-- 根目录 -->
-                    <assembleDirectory>${project.build.directory}/server</assembleDirectory>
+                    <assembleDirectory>${project.build.directory}/mall</assembleDirectory>
                     <!-- 打包的jar，以及maven依赖的jar放到这个目录里面 -->
                     <repositoryName>lib</repositoryName>
                     <!-- 可执行脚本的目录 -->
