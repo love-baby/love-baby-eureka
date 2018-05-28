@@ -145,8 +145,7 @@
                     <tempDirectory>tmp</tempDirectory>
                     <daemons>
                         <daemon>
-                            <id>mall</id>
-                            <mainClass>com.mall.Main</mainClass>
+                            <mainClass>com.love.baby.eureka.EurekaApplication</mainClass>
                             <platforms>
                                 <platform>jsw</platform>
                             </platforms>
