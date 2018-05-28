@@ -65,67 +65,28 @@
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>appassembler-maven-plugin</artifactId>-->
-                <!--<version>2.0.0</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>Make Assembly</id>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>assemble</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--&lt;!&ndash; 生成linux, windows两种平台的执行脚本 &ndash;&gt;-->
-                    <!--<binFileExtensions>-->
-                        <!--<unix>.sh</unix>-->
-                    <!--</binFileExtensions>-->
-                    <!--<platforms>-->
-                        <!--<platform>windows</platform>-->
-                        <!--<platform>unix</platform>-->
-                    <!--</platforms>-->
-                    <!--&lt;!&ndash; 根目录 &ndash;&gt;-->
-                    <!--<assembleDirectory>${project.build.directory}/mall</assembleDirectory>-->
-                    <!--&lt;!&ndash; 打包的jar，以及maven依赖的jar放到这个目录里面 &ndash;&gt;-->
-                    <!--<repositoryName>lib</repositoryName>-->
-                    <!--&lt;!&ndash; 可执行脚本的目录 &ndash;&gt;-->
-                    <!--<binFolder>bin</binFolder>-->
-                    <!--&lt;!&ndash; 配置文件的目标目录 &ndash;&gt;-->
-                    <!--<configurationDirectory>conf</configurationDirectory>-->
-                    <!--&lt;!&ndash; 拷贝配置文件到上面的目录中 &ndash;&gt;-->
-                    <!--<copyConfigurationDirectory>true</copyConfigurationDirectory>-->
-                    <!--&lt;!&ndash; 从哪里拷贝配置文件 (默认src/main/config) &ndash;&gt;-->
-                    <!--<configurationSourceDirectory>src/main/resources</configurationSourceDirectory>-->
-                    <!--&lt;!&ndash; lib目录中jar的存放规则，默认是${groupId}/${artifactId}的目录格式，flat表示直接把jar放到lib目录 &ndash;&gt;-->
-                    <!--<repositoryLayout>flat</repositoryLayout>-->
-                    <!--<encoding>UTF-8</encoding>-->
-                    <!--<logsDirectory>logs</logsDirectory>-->
-                    <!--<tempDirectory>tmp</tempDirectory>-->
-                    <!--<extraJvmArguments>-Xms128m</extraJvmArguments>-->
-                    <!--<programs>-->
-                        <!--<program>-->
-                            <!--<id>start</id>-->
-                            <!--&lt;!&ndash; 启动类 &ndash;&gt;-->
-                            <!--<mainClass>com.love.baby.eureka.EurekaApplication</mainClass>-->
-                            <!--<jvmSettings>-->
-                                <!--<extraArguments>-->
-                                    <!--<extraArgument>-server</extraArgument>-->
-                                    <!--<extraArgument>-Xmx1G</extraArgument>-->
-                                    <!--<extraArgument>-Xms1G</extraArgument>-->
-                                <!--</extraArguments>-->
-                            <!--</jvmSettings>-->
-                        <!--</program>-->
-                    <!--</programs>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>2.0.0</version>
+                <executions>
+                    <execution>
+                        <id>Make Assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
+                    <!-- 生成linux, windows两种平台的执行脚本 -->
+                    <binFileExtensions>
+                        <unix>.sh</unix>
+                    </binFileExtensions>
+                    <platforms>
+                        <platform>windows</platform>
+                        <platform>unix</platform>
+                    </platforms>
                     <!-- 根目录 -->
                     <assembleDirectory>${project.build.directory}/mall</assembleDirectory>
                     <!-- 打包的jar，以及maven依赖的jar放到这个目录里面 -->
@@ -143,52 +104,21 @@
                     <encoding>UTF-8</encoding>
                     <logsDirectory>logs</logsDirectory>
                     <tempDirectory>tmp</tempDirectory>
-                    <daemons>
-                        <daemon>
+                    <extraJvmArguments>-Xms128m</extraJvmArguments>
+                    <programs>
+                        <program>
+                            <id>start</id>
+                            <!-- 启动类 -->
                             <mainClass>com.love.baby.eureka.EurekaApplication</mainClass>
-                            <platforms>
-                                <platform>jsw</platform>
-                            </platforms>
-                            <generatorConfigurations>
-                                <generatorConfiguration>
-                                    <generator>jsw</generator>
-                                    <includes>
-                                        <include>linux-x86-32</include>
-                                        <include>linux-x86-64</include>
-                                        <include>windows-x86-32</include>
-                                        <include>windows-x86-64</include>
-                                    </includes>
-                                    <configuration>
-                                        <property>
-                                            <name>configuration.directory.in.classpath.first</name>
-                                            <value>conf</value>
-                                        </property>
-                                        <property>
-                                            <name>wrapper.ping.timeout</name>
-                                            <value>120</value>
-                                        </property>
-                                        <property>
-                                            <name>set.default.REPO_DIR</name>
-                                            <value>lib</value>
-                                        </property>
-                                        <property>
-                                            <name>wrapper.logfile</name>
-                                            <value>logs/wrapper.log</value>
-                                        </property>
-                                    </configuration>
-                                </generatorConfiguration>
-                            </generatorConfigurations>
                             <jvmSettings>
-                                <!-- jvm参数 -->
-                                <systemProperties>
-                                    <systemProperty>com.sun.management.jmxremote</systemProperty>
-                                    <systemProperty>com.sun.management.jmxremote.port=1984</systemProperty>
-                                    <systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
-                                    <systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty>
-                                </systemProperties>
+                                <extraArguments>
+                                    <extraArgument>-server</extraArgument>
+                                    <extraArgument>-Xmx1G</extraArgument>
+                                    <extraArgument>-Xms1G</extraArgument>
+                                </extraArguments>
                             </jvmSettings>
-                        </daemon>
-                    </daemons>
+                        </program>
+                    </programs>
                 </configuration>
             </plugin>
 
