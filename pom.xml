@@ -125,16 +125,15 @@
                             <!-- 启动类 -->
                             <mainClass>com.love.baby.eureka.EurekaApplication</mainClass>
                             <jvmSettings>
-                                <extraArguments>
-                                    <extraArgument>-server</extraArgument>
-                                    <extraArgument>-Xmx64M</extraArgument>
-                                    <extraArgument>-Xms64M</extraArgument>
-                                </extraArguments>
+                                <initialMemorySize>32m</initialMemorySize>
+                                <maxMemorySize>64m</maxMemorySize>
+                                <maxStackSize>128m</maxStackSize>
                             </jvmSettings>
                         </program>
                     </programs>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
