@@ -116,6 +116,8 @@
                     <logsDirectory>logs</logsDirectory>
                     <tempDirectory>tmp</tempDirectory>
                     <extraJvmArguments>-Xms128m</extraJvmArguments>
+                    <showConsoleWindow>false</showConsoleWindow>
+                    <useWildcardClassPath>true</useWildcardClassPath>
                     <programs>
                         <program>
                             <id>start</id>
