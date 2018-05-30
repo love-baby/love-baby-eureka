@@ -120,7 +120,8 @@
                     <useWildcardClassPath>true</useWildcardClassPath>
                     <programs>
                         <program>
-                            <id>EurekaApplication</id>
+                            <id>start</id>
+                            <name>EurekaApplication</name>
                             <!-- 启动类 -->
                             <mainClass>com.love.baby.eureka.EurekaApplication</mainClass>
                             <jvmSettings>
