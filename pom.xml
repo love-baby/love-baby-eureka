@@ -124,8 +124,8 @@
                             <jvmSettings>
                                 <extraArguments>
                                     <extraArgument>-server</extraArgument>
-                                    <extraArgument>-Xmx128M</extraArgument>
-                                    <extraArgument>-Xms128M</extraArgument>
+                                    <extraArgument>-Xmx64M</extraArgument>
+                                    <extraArgument>-Xms64M</extraArgument>
                                 </extraArguments>
                             </jvmSettings>
                         </program>
