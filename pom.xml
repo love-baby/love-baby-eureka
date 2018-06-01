@@ -75,7 +75,7 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-
+            <!--生成启动脚本插件-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
@@ -133,6 +133,27 @@
                     </programs>
                 </configuration>
             </plugin>
+
+            <!--打包成docker镜像-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <imageName>${project.groupId}/${project.artifactId}:${project.version} </imageName>
+                    <baseImage>java</baseImage>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <!-- copy the service's jar file from target into the root directory of the image -->
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+
 
         </plugins>
     </build>
